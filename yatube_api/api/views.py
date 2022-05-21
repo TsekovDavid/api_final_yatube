@@ -17,7 +17,7 @@ class PostViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly, IsAuthorOrReadOnly,)
     pagination_class = LimitOffsetPagination
     filter_backends = (DjangoFilterBackend, filters.SearchFilter,)
-    filterset_fields = ("group",)
+    filterset_fields = ('group',)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -49,7 +49,7 @@ class FollowViewSet(viewsets.ModelViewSet):
     serializer_class = FollowSerializer
     permission_classes = (IsAuthenticated, )
     filter_backends = (filters.SearchFilter,)
-    search_fields = ("=following__username", "=user__username")
+    search_fields = ('=following__username', '=user__username')
 
     def get_queryset(self):
         return self.request.user.follower.all()

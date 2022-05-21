@@ -16,7 +16,7 @@ class GroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Group
-        fields = "__all__"
+        fields = '__all__'
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -29,31 +29,31 @@ class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         fields = '__all__'
         model = Comment
-        read_only_fields = ("post",)
+        read_only_fields = ('post',)
 
 
 class FollowSerializer(serializers.ModelSerializer):
     user = serializers.SlugRelatedField(
         read_only=True,
-        slug_field="username",
+        slug_field='username',
         default=serializers.CurrentUserDefault()
     )
     following = serializers.SlugRelatedField(
         queryset=User.objects.all(),
-        slug_field="username"
+        slug_field='username'
     )
 
-    def validate(self, data):
-        if self.context["request"].user == data["following"]:
-            raise serializers.ValidationError("Подписка на себя запрещена.")
+    def validate_following(self, data):
+        if self.context['request'].user.username == data.username:
+            raise serializers.ValidationError('Подписка на себя запрещена.')
         return data
 
     class Meta:
-        fields = "__all__"
+        fields = '__all__'
         model = Follow
         validators = [
             UniqueTogetherValidator(
                 queryset=Follow.objects.all(),
-                fields=["user", "following"]
+                fields=['user', 'following']
             )
         ]
