@@ -38,23 +38,22 @@ class Comment(models.Model):
     created = models.DateTimeField(
         "Дата добавления", auto_now_add=True, db_index=True)
 
+
 class Follow(models.Model):
     user = models.ForeignKey(
         User,
         related_name="follower",
-        #verbose_name="Подписчик",
         on_delete=models.CASCADE
     )
     following = models.ForeignKey(
         User,
         related_name="following",
-        #verbose_name="Тот на кого подписаны",
         on_delete=models.CASCADE,
     )
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=("user", "following"),
+                fields=["user", "following"],
                 name="unique follow")
         ]
