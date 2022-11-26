@@ -1,4 +1,12 @@
 # Проект API для yatube
+
+### **Стек**
+![python version](https://img.shields.io/badge/Python-3.7-green)
+![django version](https://img.shields.io/badge/Django-2.2-green)
+![pytest version](https://img.shields.io/badge/pytest-4.4-green)
+![PyJWT version](https://img.shields.io/badge/PyJWT-2.1-green)
+![DRF version](https://img.shields.io/badge/DRF-3.12-green)
+
 ### С помощью этого проекта можно:
 * Подписываться на авторов и смотреть подписки.
 * Просматривать, создавать новые, удалять и изменять посты.
