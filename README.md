@@ -10,45 +10,49 @@
 ```
 http://localhost:8000/redoc/
 ```
-### Как запустить проект:
+### Запуск проекта:
 
-Клонировать репозиторий и перейти в него в командной строке:
+* Клонируйте репозиторий и перейдите в него в командной строке:
 
 ```
-git clone https://github.com/yandex-praktikum/api_final_yatube.git
+git clone https://github.com/TsekovDavid/api_final_yatube.git
 ```
 
 ```
 cd api_final_yatube
 ```
 
-Cоздать и активировать виртуальное окружение:
+* Cоздайте и активируйте виртуальное окружение:
 
 ```
 python3 -m venv venv
 ```
-
+для windows
 ```
 source venv/bin/activate
 ```
+для macos
+```
+. venv/bin/activate
+```
 
-Установить зависимости из файла requirements.txt:
+* Установите зависимости из файла requirements.txt:
 
 ```
 python3 -m pip install --upgrade pip
 ```
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
-Выполнить миграции:
+* Выполните миграции из директории с файлом manage.py:
 
 ```
 python3 manage.py migrate
 ```
 
-Запустить проект:
+* Запустите проект:
 
 ```
 python3 manage.py runserver
